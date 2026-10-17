@@ -13,6 +13,7 @@ AMRHZ Architecture Core is a foundational framework designed to enable effective
 - [Architecture Layers](#architecture-layers)
 - [Integration Points](#integration-points)
 - [Web Development Stack](#web-development-stack)
+- [Governance Standards](#governance-standards)
 - [Key Achievements](#key-achievements)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
@@ -50,9 +51,9 @@ This architecture is built on the principle of **Human-AI Collaboration**, creat
 ├─────────────────────────────────────────────────────┤
 │        Business Logic & Application Layer           │
 ├─────────────────────────────────────────────────────┤
-│          Data Access & Integration Layer            │
+│        Data Access & Integration Layer              │
 ├─────────────────────────────────────────────────────┤
-│       Core Infrastructure & Platform Layer          │
+│        Core Infrastructure & Platform Layer         │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -86,6 +87,15 @@ This architecture is built on the principle of **Human-AI Collaboration**, creat
 - Container orchestration
 - Automated testing
 - Deployment pipelines
+
+## 🧭 Governance Standards
+
+The proposed shared standards for controlled human–AI development are documented in the [AMRHZ Governance Standards index](docs/standards/README.md):
+- **UI Evolution Contract** — evolve the smallest evidenced part; preserve working behavior and intent.
+- **Dual-Layer Documentation Standard** — maintain readable human documentation and explicit AI-oriented context/data.
+- **Evidence and State Contract** — connect status claims to scoped, inspectable evidence.
+
+**Governance status:** Proposed for review. A documented contract is not automatically enforced; enforcement must be separately configured and verified.
 
 ## 🏆 Key Achievements
 
@@ -148,6 +158,6 @@ For questions about the architecture or collaboration workflow, please open an i
 
 ---
 
-**Last Updated**: July 2026  
+**Last Updated**: October 2026  
 **Version**: 1.0.0  
-**Status**: Active Development
+**Status**: Governance standards proposed for review; existing implementation status requires separate verification.

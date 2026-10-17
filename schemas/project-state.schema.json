@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/amirulhafiz1132002-code/amrhz-architecture-core/blob/main/schemas/project-state.schema.json",
+  "title": "AMRHZ Project State Record",
+  "description": "A scoped project or feature state record. State must be backed by evidence; schema validation does not validate the truth of claims.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project", "scope", "state", "claim", "evidence", "updated_at"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "repository": { "type": "string", "pattern": "^[^/\\s]+/[^/\\s]+$" },
+        "ref": { "type": "string", "minLength": 1 },
+        "commit_sha": { "type": "string", "pattern": "^[0-9a-fA-F]{7,64}$" }
+      }
+    },
+    "scope": { "type": "string", "minLength": 1 },
+    "state": {
+      "enum": ["CONCEPT", "PROPOSED", "PLANNED", "DEVELOPMENT", "PARTIAL", "VERIFIED", "LIVE", "BLOCKED", "UNKNOWN"]
+    },
+    "claim": { "type": "string", "minLength": 1 },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidence" }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "blocked_by": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "owner": { "type": "string" }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "reference", "observed_at", "supports"],
+      "properties": {
+        "type": {
+          "enum": ["source_file", "commit", "test_result", "ci_run", "deployment_record", "runtime_observation", "issue", "human_approval", "other"]
+        },
+        "reference": { "type": "string", "minLength": 1 },
+        "observed_at": { "type": "string", "format": "date-time" },
+        "supports": { "type": "string", "minLength": 1 },
+        "result": { "type": "string" },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
