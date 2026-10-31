@@ -90,12 +90,13 @@ This architecture is built on the principle of **Human-AI Collaboration**, creat
 
 ## 🧭 Governance Standards
 
-The proposed shared standards for controlled human–AI development are documented in the [AMRHZ Governance Standards index](docs/standards/README.md):
+The proposed governance baseline is documented in the [AMRHZ Governance Standards index](docs/standards/README.md):
 - **UI Evolution Contract** — evolve the smallest evidenced part; preserve working behavior and intent.
 - **Dual-Layer Documentation Standard** — maintain readable human documentation and explicit AI-oriented context/data.
 - **Evidence and State Contract** — connect status claims to scoped, inspectable evidence.
+- **Governance lifecycle and RWCAI pipeline** — separate project/document states, independent verification, and human approval gates.
 
-**Governance status:** Proposed for review. A documented contract is not automatically enforced; enforcement must be separately configured and verified.
+**Governance status:** The RWCAI implementation branch contains proposed schemas, a validator, and a CI workflow. These do not by themselves authenticate approval events or enforce branch protection. See the [ASIP-13 compliance matrix](docs/asip-13/compliance-matrix.md).
 
 ## 🏆 Key Achievements
 
