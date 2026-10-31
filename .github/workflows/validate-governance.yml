@@ -23,7 +23,9 @@ jobs:
           python-version: "3.12"
       - name: Install validator dependency
         run: python -m pip install "jsonschema>=4.23,<5"
-      - name: Compile validator
-        run: python -m py_compile verification/validate.py
+      - name: Compile validator and tests
+        run: python -m py_compile verification/validate.py verification/test_validate.py
+      - name: Run governance validator unit tests
+        run: python -m unittest discover -s verification -p 'test_*.py'
       - name: Validate governance
         run: python verification/validate.py
