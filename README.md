@@ -4,7 +4,7 @@
 
 ## 🎯 Project Vision
 
-AMRHZ Architecture Core is a foundational framework designed to enable effective collaboration between human developers and AI systems. This repository documents structural components, integration points, and operating principles for further development and adaptation.
+AMRHZ Architecture Core is a foundational framework designed to enable effective collaboration between human developers and AI systems. This repository documents the structural components, integration points, and underlying operating principles that serve as a guide for further development and adaptations.
 
 ## 📋 Table of Contents
 
@@ -14,55 +14,113 @@ AMRHZ Architecture Core is a foundational framework designed to enable effective
 - [Integration Points](#integration-points)
 - [Web Development Stack](#web-development-stack)
 - [Governance Standards](#governance-standards)
+- [Key Achievements](#key-achievements)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## 🏗️ Overview
 
-The architecture follows Human-AI Collaboration:
-- **Humans** contribute strategic thinking, domain expertise, constraints, and final decisions.
-- **AI** assists with reasoning, architecture, implementation, and verification.
-- **Machine/runtime** supplies observable repository, test, API, log, and deployment evidence.
+This architecture is built on the principle of **Human-AI Collaboration**, creating a robust framework where:
+- **Humans** contribute strategic thinking, domain expertise, and creative direction
+- **AI** accelerates development, provides code analysis, and optimizes implementations
+- **System** maintains consistency, scalability, and maintainability throughout the lifecycle
 
 ## 🔧 Core Components
 
-- System design patterns and architectural decisions.
-- Data flow and state management.
-- Module organization and dependencies.
-- AI-assisted development workflows and human decision checkpoints.
-- External service integration boundaries.
+### 1. **Structural Components**
+   - System design patterns and architectural decisions
+   - Data flow and state management
+   - Module organization and dependencies
+
+### 2. **Integration Points**
+   - AI-assisted development workflows
+   - Human decision checkpoints
+   - External service connections
+
+### 3. **Operating System Foundation**
+   - Core utilities and helpers
+   - Environment configuration
+   - Platform-agnostic abstractions
 
 ## 🏢 Architecture Layers
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│              Presentation Layer (UI/UX)             │
+│           Presentation Layer (UI/UX)               │
 ├─────────────────────────────────────────────────────┤
-│         Business Logic & Application Layer          │
+│        Business Logic & Application Layer           │
 ├─────────────────────────────────────────────────────┤
-│           Data Access & Integration Layer           │
+│        Data Access & Integration Layer              │
 ├─────────────────────────────────────────────────────┤
 │        Core Infrastructure & Platform Layer         │
 └─────────────────────────────────────────────────────┘
 ```
 
+## 🔌 Integration Points
+
+### Human-AI Workflow
+- **Code Generation**: AI generates boilerplate and implementations
+- **Code Review**: Human review and quality assurance
+- **Optimization**: AI suggests improvements and refactoring
+- **Decision Making**: Humans make critical architectural decisions
+
+### External Systems
+- Version Control (Git/GitHub)
+- CI/CD Pipelines
+- Monitoring & Logging
+- API Gateways
+
+## 🌐 Web Development Stack
+
+### Frontend
+- Modern JavaScript/TypeScript frameworks
+- Responsive UI components
+- State management solutions
+
+### Backend
+- RESTful API design
+- Database integration
+- Authentication & Authorization
+
+### DevOps & Infrastructure
+- Container orchestration
+- Automated testing
+- Deployment pipelines
+
 ## 🧭 Governance Standards
 
-The governance baseline is documented in the [standards index](docs/standards/README.md). It includes:
-- UI evolution and preservation rules.
-- Dual-layer human and AI-oriented documentation.
-- Evidence-backed project state and verification records.
-- Independent project and documentation lifecycles.
-- RWCAI role separation and explicit human approval gates.
+The proposed governance baseline is documented in the [AMRHZ Governance Standards index](docs/standards/README.md):
+- **UI Evolution Contract** — evolve the smallest evidenced part; preserve working behavior and intent.
+- **Dual-Layer Documentation Standard** — maintain readable human documentation and explicit AI-oriented context/data.
+- **Evidence and State Contract** — connect status claims to scoped, inspectable evidence.
+- **Governance lifecycle and RWCAI pipeline** — separate project/document states, independent verification, and human approval gates.
 
-**Status:** Governance changes in the RWCAI implementation branch are proposed for review. The validator and CI workflow are intended to provide structural checks; they do not by themselves authenticate approval events or enforce branch protection. See the [compliance matrix](docs/asip-13/compliance-matrix.md) for the current evidence boundary.
+**Governance status:** The RWCAI implementation branch contains proposed schemas, a validator, and a CI workflow. These do not by themselves authenticate approval events or enforce branch protection. See the [ASIP-13 compliance matrix](docs/asip-13/compliance-matrix.md).
+
+## 🏆 Key Achievements
+
+### Development Practices
+- ✅ Established human-AI collaboration workflows
+- ✅ Defined architectural patterns and standards
+- ✅ Created integration points for scalable systems
+
+### Technical Implementations
+- ✅ Modular component architecture
+- ✅ Clear separation of concerns
+- ✅ Extensible design for future adaptations
+
+### Quality Assurance
+- ✅ Code quality standards
+- ✅ Testing frameworks
+- ✅ Documentation requirements
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Git
-- Python 3.12 for governance validation
+- Node.js (v18+)
+- Understanding of architectural patterns
 
 ### Installation
 ```bash
@@ -70,22 +128,37 @@ git clone https://github.com/amirulhafiz1132002-code/amrhz-architecture-core.git
 cd amrhz-architecture-core
 ```
 
-### Governance validation
-```bash
-python -m pip install "jsonschema>=4.23,<5"
-python -m py_compile verification/validate.py
-python verification/validate.py
-```
+### Exploring the Architecture
+1. Review the structural documentation
+2. Understand integration points
+3. Follow the examples and patterns
 
 ## 🤝 Contributing
 
-1. Create a feature branch from main.
-2. Inspect the current baseline and define the change boundary.
-3. Implement the smallest evidence-backed change.
-4. Run tests and include observed evidence in the pull request.
-5. Request independent review where required.
-6. Merge only after the repository owner approves.
+### Contribution Guidelines
+1. Follow architectural patterns established in this core
+2. Document your integration points clearly
+3. Ensure human-AI collaboration workflow is maintained
+4. Submit detailed pull requests with rationale
+
+### Development Workflow
+- Create feature branches from `main`
+- Implement changes following established patterns
+- Request review from maintainers
+- Merge after approval
 
 ## 📝 License
 
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+## 📞 Contact & Support
+
+For questions about the architecture or collaboration workflow, please open an issue or discussion in this repository.
+
+---
+
+**Last Updated**: October 2026  
+**Version**: 1.0.0  
+**Status**: Governance standards proposed for review; existing implementation status requires separate verification.
