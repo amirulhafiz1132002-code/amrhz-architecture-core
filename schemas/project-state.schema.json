@@ -2,12 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/amirulhafiz1132002-code/amrhz-architecture-core/blob/main/schemas/project-state.schema.json",
   "title": "AMRHZ Project State Record",
-  "description": "A scoped project or feature state record. State must be backed by evidence; schema validation does not validate the truth of claims.",
+  "description": "A scoped project or feature state record. Schema validation checks structure and declared transitions, not the truth of claims.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_version", "project", "scope", "state", "claim", "evidence", "updated_at"],
+  "required": ["schema_version", "project", "scope", "state", "previous_state", "claim", "evidence", "updated_at"],
   "properties": {
-    "schema_version": { "const": "1.0.0" },
+    "schema_version": { "const": "2.0.0" },
     "project": {
       "type": "object",
       "additionalProperties": false,
@@ -23,6 +23,10 @@
     "state": {
       "enum": ["CONCEPT", "PROPOSED", "PLANNED", "DEVELOPMENT", "PARTIAL", "VERIFIED", "LIVE", "BLOCKED", "UNKNOWN"]
     },
+    "previous_state": {
+      "type": ["string", "null"],
+      "enum": ["CONCEPT", "PROPOSED", "PLANNED", "DEVELOPMENT", "PARTIAL", "VERIFIED", "LIVE", "BLOCKED", "UNKNOWN", null]
+    },
     "claim": { "type": "string", "minLength": 1 },
     "evidence": {
       "type": "array",
@@ -31,7 +35,7 @@
     "limitations": { "type": "array", "items": { "type": "string" }, "default": [] },
     "blocked_by": { "type": "array", "items": { "type": "string" }, "default": [] },
     "updated_at": { "type": "string", "format": "date-time" },
-    "owner": { "type": "string" }
+    "owner": { "type": "string", "minLength": 1 }
   },
   "$defs": {
     "evidence": {
@@ -49,5 +53,37 @@
         "limitations": { "type": "array", "items": { "type": "string" } }
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "state": { "const": "VERIFIED" } }, "required": ["state"] },
+      "then": {
+        "properties": {
+          "project": { "required": ["repository", "ref", "commit_sha"] },
+          "evidence": {
+            "minItems": 1,
+            "contains": {
+              "properties": { "type": { "enum": ["test_result", "ci_run", "runtime_observation"] } },
+              "required": ["type"]
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "state": { "const": "LIVE" } }, "required": ["state"] },
+      "then": {
+        "properties": {
+          "project": { "required": ["repository", "ref", "commit_sha"] },
+          "evidence": {
+            "minItems": 1,
+            "contains": {
+              "properties": { "type": { "const": "deployment_record" } },
+              "required": ["type"]
+            }
+          }
+        }
+      }
+    }
+  ]
 }
