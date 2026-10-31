@@ -96,7 +96,7 @@ class GovernanceSchemaTests(unittest.TestCase):
         with contextlib.redirect_stdout(output):
             result = validate.validate_document_transition(record, "unit-test")
         self.assertEqual(result, 1)
-        self.assertIn("approval must follow REVIEWED", output.getvalue())
+        self.assertIn("disallowed document transition DRAFT -> APPROVED", output.getvalue())
 
 
 if __name__ == "__main__":
