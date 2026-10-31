@@ -13,6 +13,7 @@ This catalog is a navigation aid, not a substitute for reading the source docume
 - [Dual-Layer Documentation Standard](standards/DUAL-LAYER-DOCUMENTATION-STANDARD.md) — human and AI-oriented documentation.
 - [UI Evolution Contract](standards/UI-EVOLUTION-CONTRACT.md) — preservation-first UI changes.
 - [RWCAI pipeline](rwcai/pipeline.md) — role boundaries and independent verification.
+- [Meta AI review checklist](rwcai/meta-review-checklist.md) — independent review protocol and required report format.
 - [ASIP-13 compliance matrix](asip-13/compliance-matrix.md) — implementation status and evidence limitations.
 
 ## Machine-readable contracts
