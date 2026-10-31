@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/amirulhafiz1132002-code/amrhz-architecture-core/blob/main/schemas/approval-record.schema.json",
+  "title": "AMRHZ Human Approval Record",
+  "description": "A traceable approval event for one exact document revision. The record must be checked against the trusted platform event.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "actor_login", "actor_id", "decision", "document", "revision_sha", "event_url", "approved_at"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "actor_login": { "type": "string", "minLength": 1 },
+    "actor_id": { "type": "integer", "minimum": 1 },
+    "decision": { "enum": ["APPROVE", "REJECT"] },
+    "document": { "type": "string", "minLength": 1 },
+    "revision_sha": { "type": "string", "pattern": "^[0-9a-fA-F]{40}$" },
+    "event_url": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/" },
+    "approved_at": { "type": "string", "format": "date-time" }
+  }
+}
