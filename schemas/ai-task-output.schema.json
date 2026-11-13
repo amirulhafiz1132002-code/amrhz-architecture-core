@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/amirulhafiz1132002-code/amrhz-architecture-core/blob/main/schemas/ai-task-output.schema.json",
+  "title": "AMRHZ AI Task Output",
+  "description": "Generic structured report contract for task-specific AI outputs. Schema validity does not establish factual accuracy.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["summary", "results", "limitations"],
+  "properties": {
+    "summary": {
+      "type": "string",
+      "description": "Concise outcome grounded in the supplied or connected source."
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["item", "status"],
+        "properties": {
+          "item": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["VERIFIED", "OBSERVED", "ASSUMPTION", "RECOMMENDATION", "UNKNOWN"]
+          },
+          "value": {},
+          "evidence": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_steps": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
