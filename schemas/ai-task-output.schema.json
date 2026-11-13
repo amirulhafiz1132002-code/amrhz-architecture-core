@@ -1,44 +1,38 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/amirulhafiz1132002-code/amrhz-architecture-core/blob/main/schemas/ai-task-output.schema.json",
-  "title": "AMRHZ AI Task Output",
-  "description": "Generic structured report contract for task-specific AI outputs. Schema validity does not establish factual accuracy.",
+  "title": "AMRHZ YouTube Content Group Comparison",
+  "description": "Structured output for comparing YouTube content groups using actual channel analytics. Null values represent unavailable metrics; schema validity does not prove factual accuracy.",
   "type": "object",
-  "additionalProperties": true,
-  "required": ["summary", "results", "limitations"],
+  "additionalProperties": false,
+  "required": ["groups", "comparison"],
   "properties": {
-    "summary": {
-      "type": "string",
-      "description": "Concise outcome grounded in the supplied or connected source."
-    },
-    "results": {
+    "groups": {
       "type": "array",
       "items": {
         "type": "object",
-        "additionalProperties": true,
-        "required": ["item", "status"],
+        "additionalProperties": false,
+        "required": ["name", "video_count", "total_views", "average_views"],
         "properties": {
-          "item": { "type": "string" },
-          "status": {
-            "type": "string",
-            "enum": ["VERIFIED", "OBSERVED", "ASSUMPTION", "RECOMMENDATION", "UNKNOWN"]
-          },
-          "value": {},
-          "evidence": {
+          "name": { "type": "string" },
+          "video_count": { "type": ["integer", "null"], "minimum": 0 },
+          "total_views": { "type": ["integer", "null"], "minimum": 0 },
+          "average_views": { "type": ["number", "null"], "minimum": 0 },
+          "unavailable_metrics": {
             "type": "array",
             "items": { "type": "string" }
-          },
-          "notes": { "type": "string" }
+          }
         }
       }
     },
-    "limitations": {
-      "type": "array",
-      "items": { "type": "string" }
-    },
-    "next_steps": {
-      "type": "array",
-      "items": { "type": "string" }
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["higher_total_views", "explanation"],
+      "properties": {
+        "higher_total_views": { "type": ["string", "null"] },
+        "explanation": { "type": "string" }
+      }
     }
   }
 }
