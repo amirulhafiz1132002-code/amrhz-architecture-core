@@ -7,10 +7,12 @@
 - [UI Evolution Contract](UI-EVOLUTION-CONTRACT.md) — how interfaces may change while preserving intent and working behavior.
 - [Dual-Layer Documentation Standard](DUAL-LAYER-DOCUMENTATION-STANDARD.md) — how human-readable explanations and AI-oriented structured data coexist.
 - [Evidence and State Contract](EVIDENCE-AND-STATE-CONTRACT.md) — how project facts, verification, and state labels are grounded in evidence.
+- [AMRHZ Master Context — AI Integration Standard](AMRHZ-MASTER-CONTEXT-AI-INTEGRATION-STANDARD.md) — reusable AI context, concise task prompts, platform adaptation, and verification boundaries.
 
 ## Machine-readable schemas
 - [Project State Schema](../../schemas/project-state.schema.json)
 - [Verification Record Schema](../../schemas/verification-record.schema.json)
+- [AI Task Output Schema](../../schemas/ai-task-output.schema.json)
 
 ## Adoption model
 1. Read the standards and inspect the target repository.
